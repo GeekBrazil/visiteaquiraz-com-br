@@ -1,0 +1,23 @@
+{
+  "fonte": "Receita Federal do Brasil, IBGE & OAAS Ceará",
+  "municipio": "Aquiraz",
+  "uf": "CE",
+  "codigoIbge": "2301000",
+  "geradoEm": "2026-11-12",
+  "estatisticas": {
+    "empresasPortoDasDunas": 845,
+    "empresasGeocodificadas": 718,
+    "extensaoLitoralKm": 36,
+    "anoFundacao": 1699,
+    "anoInstalacaoCapital": 1713,
+    "temperaturaMediaC": 27,
+    "diasDeSolAno": 300,
+    "distanciaCapitalKm": 22,
+    "leitosHoteleiros": 6200
+  },
+  "marcos": {
+    "primeiraCapital": "Aquiraz foi a primeira sede do governo da Capitania do Ceará entre 1699 e 1726.",
+    "indicacaoGeografica": "A Renda de Bilro da Prainha possui reconhecimento de Indicação Geográfica pelo INPI.",
+    "poloTuristico": "Porto das Dunas abriga o maior parque aquático da América Latina e o maior cluster de resorts do estado."
+  }
+}

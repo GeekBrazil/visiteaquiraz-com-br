@@ -1,0 +1,209 @@
+@import "tailwindcss";
+@import "leaflet/dist/leaflet.css";
+
+/* ============================================================
+   VISITE AQUIRAZ — SISTEMA DE DESIGN
+   Paleta tirada da paisagem real de Porto das Dunas e Aquiraz:
+   Dunas de quartzo (areia quente), mar esmeralda do Ceará,
+   sol poente (âmbar dourado), mangue do Pacoti e renda de bilro.
+   Tema claro. Sem gradiente roxo, sem glassmorphism, sem neon.
+   ============================================================ */
+
+@theme {
+  /* Superfícies */
+  --color-duna: #faf6ee;
+  --color-duna-2: #f1e7d4;
+  --color-duna-3: #e5d7be;
+
+  /* Tinta (Texto com contraste rigoroso WCAG AA/AAA) */
+  --color-tinta: #142326;
+  --color-tinta-2: #3d5056;
+  --color-tinta-3: #586c73;
+
+  /* Acentos */
+  --color-esmeralda: #0a7e82;
+  --color-esmeralda-esc: #075f63;
+  --color-esmeralda-claro: #e0f2f1;
+  --color-sol: #d98218;
+  --color-sol-esc: #b3660d;
+  --color-sol-claro: #fef3e2;
+  --color-pacoti: #28533c;
+  --color-renda: #ffffff;
+
+  /* Tipografia */
+  --font-display: var(--fonte-display), Georgia, "Times New Roman", serif;
+  --font-sans: var(--fonte-corpo), system-ui, -apple-system, sans-serif;
+
+  /* Escala fluida */
+  --text-display: clamp(2.8rem, 7.2vw, 5.5rem);
+  --text-t1: clamp(2rem, 4vw, 3.2rem);
+  --text-t2: clamp(1.45rem, 2.5vw, 2.1rem);
+  --text-t3: clamp(1.15rem, 1.6vw, 1.35rem);
+  --text-corpo: clamp(1.05rem, 1.05vw, 1.18rem);
+
+  /* Ritmo e raios */
+  --raio: 4px;
+  --raio-md: 8px;
+}
+
+/* ---------- Base ---------- */
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--color-duna);
+  color: var(--color-tinta);
+  font-family: var(--font-sans);
+  font-size: var(--text-corpo);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Grão sutil — textura orgânica de papel e areia */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.026;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+::selection {
+  background-color: var(--color-esmeralda);
+  color: var(--color-renda);
+}
+
+/* ---------- Tipografia Editorial ---------- */
+
+.display {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-display);
+  line-height: 0.98;
+  letter-spacing: -0.028em;
+}
+
+.t1 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-t1);
+  line-height: 1.06;
+  letter-spacing: -0.022em;
+}
+
+.t2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-t2);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+}
+
+.t3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-t3);
+  line-height: 1.25;
+}
+
+/* Olho / Eyebrow */
+.olho {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-esmeralda);
+}
+
+.olho-sol {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-sol-esc);
+}
+
+/* Links e Botões */
+.link-sub {
+  position: relative;
+  transition: opacity 0.15s ease;
+}
+.link-sub::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1px;
+  background-color: currentColor;
+  opacity: 0.4;
+  transition: opacity 0.15s ease;
+}
+.link-sub:hover::after {
+  opacity: 1;
+}
+
+.btn-esmeralda {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: var(--color-esmeralda);
+  color: var(--color-renda);
+  font-weight: 600;
+  padding: 0.85rem 1.75rem;
+  border-radius: var(--raio);
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+.btn-esmeralda:hover {
+  background-color: var(--color-esmeralda-esc);
+  transform: translateY(-1px);
+}
+
+.btn-secundario {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: transparent;
+  color: var(--color-tinta);
+  border: 1px solid var(--color-duna-3);
+  font-weight: 600;
+  padding: 0.85rem 1.75rem;
+  border-radius: var(--raio);
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+.btn-secundario:hover {
+  background-color: var(--color-duna-2);
+  border-color: var(--color-esmeralda);
+}
+
+/* ---------- Animações de Scroll (Revelar) ---------- */
+
+.revelar {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.revelar.visivel {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .revelar {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

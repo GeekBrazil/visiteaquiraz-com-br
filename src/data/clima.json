@@ -1,0 +1,27 @@
+{
+  "fonte": "INMET & Marinha do Brasil",
+  "municipio": "Aquiraz",
+  "uf": "CE",
+  "geradoEm": "2026-11-12",
+  "medias": {
+    "temperaturaAr": 27.5,
+    "temperaturaAgua": 26.8,
+    "ventoMedioKnots": 18,
+    "temporadaVento": "Julho a Dezembro (ventos alísios constantes)",
+    "temporadaLagoasCheias": "Fevereiro a Junho"
+  },
+  "meses": [
+    { "mes": "Jan", "temp": 28, "chuvaMm": 90, "vento": 14, "condicao": "Sol com calor e vento moderado" },
+    { "mes": "Fev", "temp": 28, "chuvaMm": 140, "vento": 12, "condicao": "Sol com chuvas passageiras" },
+    { "mes": "Mar", "temp": 27, "chuvaMm": 210, "vento": 11, "condicao": "Lagoas das dunas no nível máximo" },
+    { "mes": "Abr", "temp": 27, "chuvaMm": 190, "vento": 12, "condicao": "Paisagem verde e lagoas cheias" },
+    { "mes": "Mai", "temp": 27, "chuvaMm": 110, "vento": 14, "condicao": "Fim do período chuvoso, mar calmo" },
+    { "mes": "Jun", "temp": 27, "chuvaMm": 50, "vento": 17, "condicao": "Início da temporada dos ventos" },
+    { "mes": "Jul", "temp": 26, "chuvaMm": 25, "vento": 20, "condicao": "Vento constante, céu azul sem nuvens" },
+    { "mes": "Ago", "temp": 26, "chuvaMm": 10, "vento": 22, "condicao": "Pico dos ventos para kitesurf e vela" },
+    { "mes": "Set", "temp": 27, "chuvaMm": 5, "vento": 22, "condicao": "Condições perfeitas de sol e brisa" },
+    { "mes": "Out", "temp": 27, "chuvaMm": 5, "vento": 21, "condicao": "Sol radiante todos os dias" },
+    { "mes": "Nov", "temp": 28, "chuvaMm": 10, "vento": 19, "condicao": "Sol e águas muito mornas" },
+    { "mes": "Dez", "temp": 28, "chuvaMm": 30, "vento": 17, "condicao": "Alta temporada de verão e férias" }
+  ]
+}

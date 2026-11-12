@@ -1,0 +1,94 @@
+{
+  "fonte": "OpenStreetMap & OAAS Aquiraz",
+  "municipio": "Aquiraz",
+  "uf": "CE",
+  "geradoEm": "2026-11-12",
+  "totais": {
+    "praias": 6,
+    "atrativos_historicos": 4,
+    "natureza": 3
+  },
+  "lugares": [
+    {
+      "id": "porto-das-dunas",
+      "nome": "Porto das Dunas (Beach Park)",
+      "categoria": "praia",
+      "tipo": "Praia & Lazer",
+      "lat": -3.8380,
+      "lng": -38.3930,
+      "descricao": "Grandes dunas, mar aberto verde-esmeralda e polo de resorts."
+    },
+    {
+      "id": "prainha",
+      "nome": "Prainha & Centro das Rendeiras",
+      "categoria": "praia",
+      "tipo": "Praia & Cultura",
+      "lat": -3.8964,
+      "lng": -38.3392,
+      "descricao": "Tradição viva da renda de bilro, mar abrigado e barracas rústicas."
+    },
+    {
+      "id": "praia-do-presidio",
+      "nome": "Praia do Presídio",
+      "categoria": "praia",
+      "tipo": "Praia & Enseada",
+      "lat": -3.9168,
+      "lng": -38.3094,
+      "descricao": "Enseada mansa com bicas naturais de água doce na areia."
+    },
+    {
+      "id": "praia-do-iguape",
+      "nome": "Praia do Iguape & Duna da Encantada",
+      "categoria": "praia",
+      "tipo": "Praia & Vila",
+      "lat": -3.9550,
+      "lng": -38.2831,
+      "descricao": "Porto de jangadeiros, artesanato em labirinto e o Morro da Encantada."
+    },
+    {
+      "id": "resex-batoque",
+      "nome": "Reserva Extrativista do Batoque",
+      "categoria": "natureza",
+      "tipo": "Reserva Ecológica",
+      "lat": -3.9852,
+      "lng": -38.2384,
+      "descricao": "Praia selvagem e intocada com dunas virgens e lagoas de água doce."
+    },
+    {
+      "id": "barro-preto",
+      "nome": "Praia do Barro Preto",
+      "categoria": "praia",
+      "tipo": "Praia & Tranquilidade",
+      "lat": -3.9355,
+      "lng": -38.2970,
+      "descricao": "Areias com minerais escuros, mar agradável e ambiente familiar."
+    },
+    {
+      "id": "centro-historico",
+      "nome": "Centro Histórico & Museu Sacro",
+      "categoria": "atrativo",
+      "tipo": "História Colonial",
+      "lat": -3.9032,
+      "lng": -38.3891,
+      "descricao": "Primeira capital do Ceará, Igreja Matriz de 1713 e antigo presídio jesuíta."
+    },
+    {
+      "id": "rio-pacoti",
+      "nome": "Foz do Rio Pacoti & Manguezal",
+      "categoria": "natureza",
+      "tipo": "Ecoturismo & Kitesurf",
+      "lat": -3.8290,
+      "lng": -38.4065,
+      "descricao": "APA do Rio Pacoti, águas abrigadas ideais para esportes a vela e SUP."
+    },
+    {
+      "id": "engenho-colonial",
+      "nome": "Engenhos & Rota da Cachaça",
+      "categoria": "atrativo",
+      "tipo": "Patrimônio Rural",
+      "lat": -3.9200,
+      "lng": -38.4100,
+      "descricao": "Tradição canavieira colonial e história dos primeiros engenhos cearenses."
+    }
+  ]
+}
