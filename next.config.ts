@@ -19,6 +19,10 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
+        hostname: "midia.allancandido.com",
+      },
+      {
+        protocol: "https",
         hostname: "images.unsplash.com",
       },
       {

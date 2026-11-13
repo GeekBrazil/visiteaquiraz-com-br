@@ -1,21 +1,28 @@
 import Link from "next/link";
-import dynamic from "next/dynamic";
+import dynamicImport from "next/dynamic";
 import Hero from "@/components/Hero";
 import Revelar from "@/components/Revelar";
+import GaleriaFotos from "@/components/GaleriaFotos";
+import UltimosArtigos from "@/components/UltimosArtigos";
 import NumerosOficiais from "@/components/NumerosOficiais";
 import CalculadoraViagemAquiraz from "@/components/CalculadoraViagemAquiraz";
 import Clima from "@/components/Clima";
 import Newsletter from "@/components/Newsletter";
 import { DESTINOS, EXPERIENCIAS, PRATICO } from "@/data/aquiraz";
+import { getArticles, getFotos } from "@/lib/storage";
+
+export const dynamic = "force-dynamic";
 
 // Leaflet carregado apenas no cliente via dynamic import para proteger o LCP
-const MapaAquiraz = dynamic(() => import("@/components/MapaAquiraz"), {
+const MapaAquiraz = dynamicImport(() => import("@/components/MapaAquiraz"), {
   loading: () => (
     <div className="h-[30rem] w-full animate-pulse rounded-[8px] border border-duna-3 bg-duna-2" />
   ),
 });
 
-export default function Home() {
+export default async function Home() {
+  const [fotos, artigos] = await Promise.all([getFotos(), getArticles(true)]);
+
   return (
     <>
       <Cabecalho />
@@ -23,12 +30,14 @@ export default function Home() {
       <main id="conteudo" className="relative z-10">
         <Hero />
         <Destinos />
+        <GaleriaFotos fotos={fotos} />
         <SecaoMapa />
         <NumerosOficiais />
         <SecaoExperiencias />
         <Clima />
         <CalculadoraViagemAquiraz />
         <SecaoPratico />
+        <UltimosArtigos artigos={artigos} />
         <Newsletter />
       </main>
 
@@ -52,15 +61,15 @@ function Cabecalho() {
           </span>
         </Link>
 
-        <nav aria-label="Principal" className="hidden items-center gap-7 md:flex">
+        <nav aria-label="Principal" className="hidden items-center gap-6 md:flex">
           <Link href="#destinos" className="text-sm font-medium text-tinta-2 hover:text-esmeralda transition-colors">
             Praias
           </Link>
+          <Link href="#galeria" className="text-sm font-medium text-tinta-2 hover:text-esmeralda transition-colors">
+            Fotos
+          </Link>
           <Link href="#mapa" className="text-sm font-medium text-tinta-2 hover:text-esmeralda transition-colors">
             Mapa
-          </Link>
-          <Link href="#experiencias" className="text-sm font-medium text-tinta-2 hover:text-esmeralda transition-colors">
-            Experiências
           </Link>
           <Link href="#clima" className="text-sm font-medium text-tinta-2 hover:text-esmeralda transition-colors">
             Quando Ir
@@ -68,17 +77,25 @@ function Cabecalho() {
           <Link href="#calculadora" className="text-sm font-medium text-tinta-2 hover:text-esmeralda transition-colors">
             Custos
           </Link>
-          <Link href="#pratico" className="text-sm font-medium text-tinta-2 hover:text-esmeralda transition-colors">
-            Como Chegar
+          <Link href="/blog" className="text-sm font-medium text-tinta-2 hover:text-esmeralda transition-colors">
+            Blog
           </Link>
         </nav>
 
-        <a
-          href="#newsletter"
-          className="rounded-md bg-esmeralda px-4 py-2 text-xs font-semibold text-renda hover:bg-esmeralda-esc transition-colors"
-        >
-          Guia Semanal
-        </a>
+        <div className="flex items-center gap-2.5">
+          <Link
+            href="/admin"
+            className="rounded-md border border-duna-3 px-3 py-2 text-xs font-semibold text-tinta-2 hover:border-esmeralda hover:text-esmeralda transition-colors"
+          >
+            Painel
+          </Link>
+          <a
+            href="#newsletter"
+            className="rounded-md bg-esmeralda px-4 py-2 text-xs font-semibold text-renda hover:bg-esmeralda-esc transition-colors"
+          >
+            Guia Semanal
+          </a>
+        </div>
       </div>
     </header>
   );
@@ -247,7 +264,9 @@ function Rodape() {
           Dados oficiais compilados via OpenStreetMap, Receita Federal do Brasil, IBGE e Cadastur.
         </p>
         <p>
-          Desenvolvido por <strong className="text-tinta">Allan Candido</strong> · Primeira Capital do Ceará.
+          Desenvolvido por <strong className="text-tinta">Allan Candido</strong> · Primeira Capital do Ceará ·{" "}
+          <Link href="/blog" className="underline hover:text-esmeralda">Blog</Link> ·{" "}
+          <Link href="/admin" className="underline hover:text-esmeralda">Painel Admin</Link>
         </p>
       </div>
     </footer>
