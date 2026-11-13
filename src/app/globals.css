@@ -18,14 +18,14 @@
   /* Tinta (Texto com contraste rigoroso WCAG AA/AAA) */
   --color-tinta: #142326;
   --color-tinta-2: #3d5056;
-  --color-tinta-3: #586c73;
+  --color-tinta-3: #45565d;
 
   /* Acentos */
-  --color-esmeralda: #0a7e82;
-  --color-esmeralda-esc: #075f63;
+  --color-esmeralda: #066367;
+  --color-esmeralda-esc: #054e51;
   --color-esmeralda-claro: #e0f2f1;
   --color-sol: #d98218;
-  --color-sol-esc: #b3660d;
+  --color-sol-esc: #8c4a05;
   --color-sol-claro: #fef3e2;
   --color-pacoti: #28533c;
   --color-renda: #ffffff;
@@ -200,11 +200,83 @@ body::before {
   transform: none;
 }
 
+.barra-vento {
+  transform-origin: left center;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .revelar .barra-vento {
+    transform: scaleX(0);
+  }
+  .revelar.visivel .barra-vento {
+    transform: scaleX(1);
+    transition: transform 0.72s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+}
+
+/* Rota costeira SVG desenhada na entrada */
+@keyframes traco-costa-draw {
+  from {
+    stroke-dashoffset: 380;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.traco-costa-svg {
+  stroke-dasharray: 380;
+  stroke-dashoffset: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .revelar.visivel .traco-costa-svg {
+    stroke-dashoffset: 380;
+    animation: traco-costa-draw 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
+  }
+}
+
+/* Barra de progresso de leitura via CSS Scroll-Driven Animations */
+.progresso-leitura {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 60;
+  background: linear-gradient(90deg, var(--color-esmeralda), var(--color-sol));
+  transform-origin: left center;
+  transform: scaleX(0);
+  pointer-events: none;
+}
+
+@keyframes crescer-leitura {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@supports ((animation-timeline: scroll()) and (animation-range: 0% 100%)) {
+  @media (prefers-reduced-motion: no-preference) {
+    .progresso-leitura {
+      animation: crescer-leitura linear both;
+      animation-timeline: scroll(root block);
+      animation-range: 0% 100%;
+    }
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .revelar {
     opacity: 1;
     transform: none;
     transition: none;
+  }
+  .progresso-leitura {
+    display: none;
   }
 }
 

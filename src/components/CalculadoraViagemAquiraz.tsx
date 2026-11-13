@@ -215,7 +215,7 @@ export default function CalculadoraViagemAquiraz() {
                       className={`flex w-full items-center justify-between rounded-md border p-3 text-left transition-all ${
                         ativo
                           ? "border-esmeralda bg-duna shadow-2xs"
-                          : "border-duna-3 bg-duna/40 opacity-70 hover:opacity-100"
+                          : "border-duna-3 bg-renda/70 hover:bg-duna"
                       }`}
                     >
                       <div className="pr-4">

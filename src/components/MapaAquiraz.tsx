@@ -18,8 +18,8 @@ export interface Lugar {
 const LUGARES = lugaresJson.lugares as Lugar[];
 
 const CATEGORIAS = [
-  { id: "praia", rotulo: "Praias & Lazer", cor: "#0a7e82" },
-  { id: "atrativo", rotulo: "História & Cultura", cor: "#d98218" },
+  { id: "praia", rotulo: "Praias & Lazer", cor: "#066367" },
+  { id: "atrativo", rotulo: "História & Cultura", cor: "#8c4a05" },
   { id: "natureza", rotulo: "Ecoturismo & APA", cor: "#28533c" },
 ];
 
@@ -58,8 +58,9 @@ export default function MapaAquiraz() {
       if (cancelado || !containerRef.current || mapaRef.current) return;
 
       const mapa = L.map(containerRef.current, {
-        center: [-3.89, -38.34],
-        zoom: 11,
+        center: [-3.895, -38.335],
+        zoom: 11.5,
+        zoomSnap: 0.5,
         zoomControl: false,
         scrollWheelZoom: false,
       });
@@ -108,9 +109,9 @@ export default function MapaAquiraz() {
         const cor = COR[lugar.categoria] ?? "#3d5056";
         const icone = L.divIcon({
           className: "",
-          html: `<span style="display:block;width:16px;height:16px;border-radius:50%;background:${cor};border:2.5px solid #faf6ee;box-shadow:0 2px 6px rgba(20,35,38,.4)"></span>`,
-          iconSize: [16, 16],
-          iconAnchor: [8, 8],
+          html: `<span style="display:flex;align-items:center;justify-content:center;width:24px;height:24px;"><span style="display:block;width:16px;height:16px;border-radius:50%;background:${cor};border:2.5px solid #faf6ee;box-shadow:0 2px 6px rgba(20,35,38,.4)"></span><span class="sr-only">${escapar(lugar.nome)}</span></span>`,
+          iconSize: [24, 24],
+          iconAnchor: [12, 12],
         });
 
         const partes = [
@@ -123,7 +124,11 @@ export default function MapaAquiraz() {
           );
         }
 
-        const marcador = L.marker([lugar.lat, lugar.lng], { icon: icone });
+        const marcador = L.marker([lugar.lat, lugar.lng], {
+          icon: icone,
+          title: lugar.nome,
+          alt: lugar.nome,
+        });
         marcador.bindPopup(
           `<div style="font-family:sans-serif;padding:4px">${partes.join("")}</div>`
         );
@@ -158,7 +163,7 @@ export default function MapaAquiraz() {
               className={`inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-xs font-medium transition-all ${
                 ativo
                   ? "bg-duna-2 text-tinta shadow-xs ring-1 ring-duna-3"
-                  : "bg-transparent text-tinta-3 opacity-60 hover:opacity-100"
+                  : "bg-transparent text-tinta-2 border border-duna-3/70 hover:bg-duna-2/60"
               }`}
             >
               <span
