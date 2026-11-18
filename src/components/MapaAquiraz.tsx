@@ -103,9 +103,9 @@ export default function MapaAquiraz() {
         const cor = COR[lugar.categoria] ?? "#3d5056";
         const icone = L.divIcon({
           className: "",
-          html: `<span style="display:flex;align-items:center;justify-content:center;width:24px;height:24px;"><span style="display:block;width:16px;height:16px;border-radius:50%;background:${cor};border:2.5px solid #faf6ee;box-shadow:0 2px 6px rgba(20,35,38,.4)"></span><span class="sr-only">${escapar(lugar.nome)}</span></span>`,
-          iconSize: [24, 24],
-          iconAnchor: [12, 12],
+          html: `<span style="position:relative;display:flex;align-items:center;justify-content:center;width:30px;height:30px;"><span style="position:absolute;inset:2px;border-radius:50%;border:2px solid ${cor};opacity:0.55;box-shadow:0 0 10px ${cor}66;"></span><span style="display:block;width:12px;height:12px;border-radius:50%;background:${cor};border:2px solid #faf6ee;box-shadow:0 0 6px ${cor};"></span><span class="sr-only">${escapar(lugar.nome)}</span></span>`,
+          iconSize: [30, 30],
+          iconAnchor: [15, 15],
         });
 
         const partes = [
