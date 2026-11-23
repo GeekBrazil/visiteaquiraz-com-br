@@ -70,40 +70,26 @@ export default function GaleriaFotos({ fotos }: Props) {
     };
   }, [fotoAtiva]);
 
+  if (fotos.length === 0) {
+    return null;
+  }
+
   return (
     <section id="galeria" className="border-b border-duna-3 bg-duna-2/35 py-20">
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
-            <p className="olho">Acervo Fotográfico · Cloudflare R2</p>
+            <p className="olho">Acervo Fotográfico</p>
             <h2 className="t1 mt-3 text-tinta">Olhar real sobre Aquiraz</h2>
             <p className="mt-3 max-w-2xl text-tinta-2 leading-relaxed">
               Registros autorais das praias, dunas, jangadas e lagoas ao longo dos 36 km
               de costa entre o Porto das Dunas e a Reserva do Batoque.
             </p>
           </div>
-
-          <Link
-            href="/admin"
-            className="text-xs font-semibold uppercase tracking-wider text-esmeralda hover:text-esmeralda-esc transition-colors"
-          >
-            Gerenciar acervo →
-          </Link>
         </div>
 
-        {fotos.length === 0 ? (
-          <div className="mt-10 rounded-lg border border-dashed border-duna-3 bg-duna p-10 text-center">
-            <p className="font-serif text-lg font-semibold text-tinta">
-              Galeria pronta para receber suas fotos
-            </p>
-            <p className="mx-auto mt-2 max-w-lg text-sm text-tinta-2">
-              Envie suas imagens pelo painel administrativo para armazená-las na CDN do
-              Cloudflare R2 e exibi-las automaticamente aqui.
-            </p>
-            <Link href="/admin" className="btn-esmeralda mt-6 inline-flex text-xs">
-              Postar primeiras fotos no R2
-            </Link>
-          </div>
+        {false ? (
+          <div />
         ) : (
           <>
             {locaisDisponiveis.length > 1 && (

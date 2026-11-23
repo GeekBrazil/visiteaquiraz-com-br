@@ -18,7 +18,7 @@ const corpo = Inter({
 const SITE = "https://visiteaquiraz.com.br";
 const TITULO = "Visite Aquiraz — Porto das Dunas, Beach Park, Prainha e Primeira Capital do Ceará";
 const DESCRICAO =
-  "Guia completo de Aquiraz e Porto das Dunas: as grandes dunas móveis, Beach Park, o artesanato de renda de bilro na Prainha, a enseada do Presídio, kitesurf no Rio Pacoti e o centro histórico colonial de 1699.";
+  "Guia completo de Aquiraz e Porto das Dunas: dunas móveis, Beach Park, renda de bilro na Prainha, Praia do Presídio, kitesurf no Rio Pacoti e centro histórico.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE),
@@ -49,15 +49,22 @@ export const metadata: Metadata = {
     siteName: "Visite Aquiraz",
     title: TITULO,
     description: DESCRICAO,
+    images: [{ url: "/icon-512.png", width: 512, height: 512, alt: "Visite Aquiraz — Litoral Leste do Ceará" }],
   },
   twitter: {
     card: "summary_large_image",
     title: TITULO,
     description: DESCRICAO,
+    images: ["/icon-512.png"],
   },
   robots: {
     index: true,
     follow: true,
+  },
+  manifest: "/manifest.json",
+  icons: {
+    icon: "/icon-192.png",
+    apple: "/icon-192.png",
   },
   appleWebApp: { capable: true, title: "Visite Aquiraz", statusBarStyle: "default" },
 };
@@ -123,6 +130,7 @@ export default function RootLayout({
           Ir para o conteúdo
         </a>
         {children}
+        <Script src="/pwa.js" strategy="afterInteractive" />
         <Script src="https://allancandido.com/r.js" data-site="visiteaquiraz" strategy="afterInteractive" />
         <Script src="https://allancandido.com/chat/widget.js" data-site="visiteaquiraz" strategy="lazyOnload" />
       </body>

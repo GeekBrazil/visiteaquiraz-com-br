@@ -26,21 +26,7 @@ export default function UltimosArtigos({ artigos }: Props) {
           </Link>
         </div>
 
-        {recentes.length === 0 ? (
-          <div className="mt-10 rounded-lg border border-duna-3 bg-duna-2/40 p-8 flex flex-wrap items-center justify-between gap-4">
-            <div>
-              <h3 className="font-serif text-lg font-bold text-tinta">
-                Publicações automáticas prontas para iniciar
-              </h3>
-              <p className="mt-1 text-sm text-tinta-2">
-                O cron editorial gera novos roteiros de Aquiraz no piloto automático. Você também pode gerar o primeiro agora pelo painel.
-              </p>
-            </div>
-            <Link href="/admin" className="btn-esmeralda text-xs">
-              Abrir Painel Editorial
-            </Link>
-          </div>
-        ) : (
+        {recentes.length === 0 ? null : (
           <div className="mt-10 grid gap-7 md:grid-cols-3">
             {recentes.map((artigo) => (
               <Link

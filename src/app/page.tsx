@@ -83,12 +83,6 @@ function Cabecalho() {
         </nav>
 
         <div className="flex items-center gap-2.5">
-          <Link
-            href="/admin"
-            className="rounded-md border border-duna-3 px-3 py-2 text-xs font-semibold text-tinta-2 hover:border-esmeralda hover:text-esmeralda transition-colors"
-          >
-            Painel
-          </Link>
           <a
             href="#newsletter"
             className="rounded-md bg-esmeralda px-4 py-2 text-xs font-semibold text-renda hover:bg-esmeralda-esc transition-colors"
@@ -265,8 +259,7 @@ function Rodape() {
         </p>
         <p>
           Desenvolvido por <strong className="text-tinta">Allan Candido</strong> · Primeira Capital do Ceará ·{" "}
-          <Link href="/blog" className="underline hover:text-esmeralda">Blog</Link> ·{" "}
-          <Link href="/admin" className="underline hover:text-esmeralda">Painel Admin</Link>
+          <Link href="/blog" className="underline hover:text-esmeralda">Blog</Link>
         </p>
       </div>
     </footer>

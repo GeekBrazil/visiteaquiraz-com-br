@@ -9,11 +9,20 @@ const cabecalhos = [
   { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
 ];
 
+const casarosaOrigin = process.env.CASAROSA_ORIGIN ?? "https://jobpago.com.br";
+
 const nextConfig: NextConfig = {
   output: "standalone",
   poweredByHeader: false,
   async headers() {
     return [{ source: "/:path*", headers: cabecalhos }];
+  },
+  async rewrites() {
+    return [
+      { source: "/casarosa", destination: `${casarosaOrigin}/casarosa` },
+      { source: "/casarosa/:path*", destination: `${casarosaOrigin}/casarosa/:path*` },
+      { source: "/casarosa-static/:path*", destination: `${casarosaOrigin}/casarosa-static/:path*` },
+    ];
   },
   images: {
     remotePatterns: [

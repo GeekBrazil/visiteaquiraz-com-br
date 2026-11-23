@@ -2,25 +2,41 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Visite Aquiraz",
-    short_name: "Aquiraz",
-    description: "Guia oficial e independente de Aquiraz e Porto das Dunas.",
-    start_url: "/",
-    display: "standalone",
-    background_color: "#faf6ee",
-    theme_color: "#faf6ee",
-    icons: [
-      {
-        src: "/icon-192.png",
-        sizes: "192x192",
-        type: "image/png",
-      },
-      {
-        src: "/icon-512.png",
-        sizes: "512x512",
-        type: "image/png",
-      },
-    ],
-  };
+    "name": "Visite Aquiraz — Porto das Dunas, Beach Park e Prainha",
+    "short_name": "Visite Aquiraz",
+    "description": "Guia completo de Aquiraz, Porto das Dunas, Beach Park, Prainha e Costa Leste do Ceará.",
+    "start_url": "/?utm_source=pwa",
+    "scope": "/",
+    "display": "standalone",
+    "orientation": "portrait",
+    "background_color": "#faf6ee",
+    "theme_color": "#faf6ee",
+    "lang": "pt-BR",
+    "icons": [
+        {
+            "src": "/icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "/icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "/icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "/icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ]
+};
 }
-
