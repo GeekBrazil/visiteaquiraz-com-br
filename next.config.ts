@@ -19,6 +19,8 @@ const nextConfig: NextConfig = {
   },
   async rewrites() {
     return [
+      { source: "/aquirazmotos", destination: "/aquirazmotos/index.html" },
+      { source: "/aquirazmotos/", destination: "/aquirazmotos/index.html" },
       { source: "/casarosa", destination: `${casarosaOrigin}/casarosa` },
       { source: "/casarosa/:path*", destination: `${casarosaOrigin}/casarosa/:path*` },
       { source: "/casarosa-static/:path*", destination: `${casarosaOrigin}/casarosa-static/:path*` },
