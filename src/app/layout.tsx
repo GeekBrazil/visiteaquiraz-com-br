@@ -49,13 +49,22 @@ export const metadata: Metadata = {
     siteName: "Visite Aquiraz",
     title: TITULO,
     description: DESCRICAO,
-    images: [{ url: "/icon-512.png", width: 512, height: 512, alt: "Visite Aquiraz — Litoral Leste do Ceará" }],
+    images: [
+      {
+        url: "https://visiteaquiraz.com.br/og-visiteaquiraz.jpg?v=20261126",
+        secureUrl: "https://visiteaquiraz.com.br/og-visiteaquiraz.jpg?v=20261126",
+        type: "image/jpeg",
+        width: 1200,
+        height: 630,
+        alt: "Visite Aquiraz — Porto das Dunas, Beach Park, Prainha e Primeira Capital do Ceará",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: TITULO,
     description: DESCRICAO,
-    images: ["/icon-512.png"],
+    images: ["https://visiteaquiraz.com.br/og-visiteaquiraz.jpg?v=20261126"],
   },
   robots: {
     index: true,
